@@ -24,7 +24,7 @@ func main() {
 	setupLogOutput()
 	server := gin.New()
 
-	server.Use(gin.Recovery(), middlewares.Logger())
+	server.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth())
 
 	server.GET("/post", func(ctx *gin.Context) {
 		ctx.JSON(200, videoController.FindAll())

@@ -1,6 +1,9 @@
 package main
 
 import (
+	"io"
+	"os"
+
 	"github.com/amro-alasri/golangBasics/controller"
 	"github.com/amro-alasri/golangBasics/middlewares"
 	"github.com/amro-alasri/golangBasics/service"
@@ -12,7 +15,13 @@ var (
 	videoController controller.VideoController = controller.New(videoService)
 )
 
+func setupLogOutput() {
+	f, _ := os.Create("gin.log")
+	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
+}
+
 func main() {
+	setupLogOutput()
 	server := gin.New()
 
 	server.Use(gin.Recovery(), middlewares.Logger())

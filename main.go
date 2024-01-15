@@ -30,9 +30,9 @@ func main() {
 
 	server.LoadHTMLGlob("templates/*.html")
 
-	server.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth())
+	server.Use(gin.Recovery(), middlewares.Logger())
 
-	apiRoutes := server.Group("/api")
+	apiRoutes := server.Group("/api", middlewares.BasicAuth())
 	{
 		apiRoutes.GET("/post", func(ctx *gin.Context) {
 			ctx.JSON(200, videoController.FindAll())
@@ -51,7 +51,6 @@ func main() {
 			}
 		})
 	}
-
 	viewRoutes := server.Group("/view")
 	{
 		viewRoutes.GET("/videos", videoController.ShowAll)

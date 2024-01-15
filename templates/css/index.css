@@ -1,0 +1,47 @@
+/* Add some padding to the body */
+body {
+    padding-top: 56px;
+    /* Adjust the value based on your header height */
+}
+
+/* Style the header */
+.navbar {
+    background-color: #343a40;
+    /* Choose your desired background color */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+    /* Choose your desired text color */
+}
+
+/* Style the album section */
+.album {
+    padding-top: 30px;
+}
+
+/* Style the card */
+.card {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+/* Style the iframe */
+.card-body iframe {
+    width: 100%;
+    height: 200px;
+    /* Adjust the height as needed */
+}
+
+/* Style the card text */
+.card-text {
+    text-align: center;
+}
+
+/* Add some margin to the footer */
+footer {
+    margin-top: 30px;
+}
